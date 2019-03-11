@@ -5,7 +5,7 @@ import com.arellomobile.mvp.MvpView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-class BaseMvpPresenter<View: MvpView>: MvpPresenter<View>() {
+open class BaseMvpPresenter<View: MvpView>: MvpPresenter<View>() {
     private val disposables = CompositeDisposable()
 
     fun Disposable.unsubscribeOnDestroy(): Disposable {

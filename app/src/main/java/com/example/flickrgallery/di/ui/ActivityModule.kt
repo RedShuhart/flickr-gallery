@@ -8,7 +8,7 @@ import dagger.Provides
 @Module
 class ActivityModule(private val activity: FragmentActivity) {
 
-    @AppScope
+    @UIScope
     @Provides
     fun provideActivity() = activity
 }

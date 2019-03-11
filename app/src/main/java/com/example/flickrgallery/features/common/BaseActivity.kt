@@ -11,7 +11,7 @@ import com.example.flickrgallery.navigation.AppNavigator
 import ru.terrakok.cicerone.NavigatorHolder
 import javax.inject.Inject
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
@@ -20,7 +20,7 @@ class BaseActivity : AppCompatActivity() {
 
     private var activityComponent: ActivityComponent? = null
 
-    private fun activityComponent() =
+    fun getActivityComponent() =
         activityComponent ?: createComponent()
             .also { activityComponent = it }
 
@@ -29,7 +29,7 @@ class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        activityComponent().inject(this)
+        getActivityComponent().inject(this)
     }
 
     override fun onResume() {

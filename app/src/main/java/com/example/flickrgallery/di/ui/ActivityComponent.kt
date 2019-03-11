@@ -4,7 +4,7 @@ import com.example.flickrgallery.di.AppScope
 import com.example.flickrgallery.features.common.BaseActivity
 import dagger.Subcomponent
 
-@AppScope
+@UIScope
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
