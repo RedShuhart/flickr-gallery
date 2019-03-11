@@ -1,7 +1,7 @@
-package com.example.flickrgallery.di.core
+package com.example.flickrgallery.core.di.util
 
 import android.content.Context
-import com.example.flickrgallery.di.AppScope
+import com.example.flickrgallery.core.di.AppScope
 import dagger.Module
 import dagger.Provides
 

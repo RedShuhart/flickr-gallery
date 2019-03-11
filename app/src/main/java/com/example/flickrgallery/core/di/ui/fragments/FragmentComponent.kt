@@ -1,4 +1,4 @@
-package com.example.flickrgallery.di.ui.fragments
+package com.example.flickrgallery.core.di.ui.fragments
 
 import com.example.flickrgallery.features.ui.splash.SplashFragment
 import dagger.Subcomponent

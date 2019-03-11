@@ -1,4 +1,4 @@
-package com.example.flickrgallery.api.models
+package com.example.flickrgallery.core.api.models
 
 data class FlickrFeed (
     val title: String,

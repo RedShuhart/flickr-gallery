@@ -1,6 +1,6 @@
-package com.example.flickrgallery.api
+package com.example.flickrgallery.core.api
 
-import com.example.flickrgallery.api.models.FlickrFeed
+import com.example.flickrgallery.core.api.models.FlickrFeed
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

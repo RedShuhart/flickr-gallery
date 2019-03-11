@@ -1,4 +1,4 @@
-package com.example.flickrgallery.navigation
+package com.example.flickrgallery.core.navigation
 
 import ru.terrakok.cicerone.Router
 

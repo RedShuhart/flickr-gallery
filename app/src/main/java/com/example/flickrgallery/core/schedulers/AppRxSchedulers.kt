@@ -1,4 +1,4 @@
-package com.example.flickrgallery.schedulers
+package com.example.flickrgallery.core.schedulers
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

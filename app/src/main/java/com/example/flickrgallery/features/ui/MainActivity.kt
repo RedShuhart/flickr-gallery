@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.flickrgallery.R
 import com.example.flickrgallery.features.common.BaseActivity
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
-import com.example.flickrgallery.navigation.AppRouter
+import com.example.flickrgallery.core.navigation.AppRouter
 import javax.inject.Inject
 
 class MainActivity: BaseActivity() {

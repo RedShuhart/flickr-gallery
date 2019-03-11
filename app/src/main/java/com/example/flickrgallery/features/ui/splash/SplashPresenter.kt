@@ -1,8 +1,8 @@
 package com.example.flickrgallery.features.ui.splash
 
 import com.example.flickrgallery.features.common.mvp.BaseMvpPresenter
-import com.example.flickrgallery.navigation.AppRouter
-import com.example.flickrgallery.schedulers.RxSchedulers
+import com.example.flickrgallery.core.navigation.AppRouter
+import com.example.flickrgallery.core.schedulers.RxSchedulers
 import javax.inject.Inject
 
 class SplashPresenter @Inject internal constructor(

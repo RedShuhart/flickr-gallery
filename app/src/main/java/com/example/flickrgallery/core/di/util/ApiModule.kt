@@ -1,7 +1,7 @@
-package com.example.flickrgallery.di.core
+package com.example.flickrgallery.core.di.util
 
-import com.example.flickrgallery.api.FlickrApi
-import com.example.flickrgallery.di.AppScope
+import com.example.flickrgallery.core.api.FlickrApi
+import com.example.flickrgallery.core.di.AppScope
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides

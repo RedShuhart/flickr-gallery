@@ -1,4 +1,4 @@
-package com.example.flickrgallery.di.ui.fragments
+package com.example.flickrgallery.core.di.ui.fragments
 
 import dagger.Module
 

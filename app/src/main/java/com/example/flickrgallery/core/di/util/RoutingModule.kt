@@ -1,7 +1,7 @@
-package com.example.flickrgallery.di.core
+package com.example.flickrgallery.core.di.util
 
-import com.example.flickrgallery.di.AppScope
-import com.example.flickrgallery.navigation.AppRouter
+import com.example.flickrgallery.core.di.AppScope
+import com.example.flickrgallery.core.navigation.AppRouter
 import dagger.Module
 import dagger.Provides
 import ru.terrakok.cicerone.Cicerone

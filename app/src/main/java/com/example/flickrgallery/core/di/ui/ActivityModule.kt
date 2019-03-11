@@ -1,7 +1,6 @@
-package com.example.flickrgallery.di.ui
+package com.example.flickrgallery.core.di.ui
 
 import androidx.fragment.app.FragmentActivity
-import com.example.flickrgallery.di.AppScope
 import dagger.Module
 import dagger.Provides
 

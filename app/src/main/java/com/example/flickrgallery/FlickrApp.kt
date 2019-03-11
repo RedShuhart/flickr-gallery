@@ -1,9 +1,9 @@
 package com.example.flickrgallery
 
 import androidx.multidex.MultiDexApplication
-import com.example.flickrgallery.di.AppComponent
-import com.example.flickrgallery.di.DaggerAppComponent
-import com.example.flickrgallery.di.core.AppContextModule
+import com.example.flickrgallery.core.di.AppComponent
+import com.example.flickrgallery.core.di.DaggerAppComponent
+import com.example.flickrgallery.core.di.util.AppContextModule
 
 
 class FlickrApp : MultiDexApplication() {

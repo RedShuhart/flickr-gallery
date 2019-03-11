@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.flickrgallery.R
-import com.example.flickrgallery.di.ui.fragments.FragmentModule
+import com.example.flickrgallery.core.di.ui.fragments.FragmentModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import javax.inject.Inject
 

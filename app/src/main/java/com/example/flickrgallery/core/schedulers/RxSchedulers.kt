@@ -1,4 +1,4 @@
-package com.example.flickrgallery.schedulers
+package com.example.flickrgallery.core.schedulers
 
 import io.reactivex.ObservableTransformer
 import io.reactivex.Scheduler

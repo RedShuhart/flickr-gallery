@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flickrgallery.FlickrApp
 import com.example.flickrgallery.R
-import com.example.flickrgallery.di.ui.ActivityComponent
-import com.example.flickrgallery.di.ui.ActivityModule
-import com.example.flickrgallery.navigation.AppNavigator
+import com.example.flickrgallery.core.di.ui.ActivityComponent
+import com.example.flickrgallery.core.di.ui.ActivityModule
+import com.example.flickrgallery.core.navigation.AppNavigator
 
 import ru.terrakok.cicerone.NavigatorHolder
 import javax.inject.Inject

@@ -1,6 +1,4 @@
-package com.example.flickrgallery.api.models
-
-import java.time.LocalDateTime
+package com.example.flickrgallery.core.api.models
 
 data class FlickrImage (
     val title: String,
