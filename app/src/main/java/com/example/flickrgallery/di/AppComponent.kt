@@ -12,5 +12,5 @@ import dagger.Component
 @Component(modules = [ApiModule::class, RoutingModule::class, AppContextModule::class, SchedulersModule::class])
 interface AppComponent {
 
-    fun add(activityModule: ActivityModule): ActivityComponent
+    operator fun plus(activityModule: ActivityModule): ActivityComponent
 }

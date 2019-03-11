@@ -24,7 +24,7 @@ open class BaseActivity : AppCompatActivity() {
         activityComponent ?: createComponent()
             .also { activityComponent = it }
 
-    private fun createComponent() = (application as FlickrApp).appComponent.add(ActivityModule(this))
+    private fun createComponent() = (application as FlickrApp).appComponent.plus(ActivityModule(this))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
