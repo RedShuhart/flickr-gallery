@@ -10,7 +10,8 @@ import dagger.Subcomponent
 interface ActivityComponent {
 
     operator fun plus(module: SplashModule): SplashComponent
-    operator fun plus(module: FeedModule): FeedComponent
+    operator fun plus(module: FeedCardsModule): FeedCardsComponent
+    operator fun plus(module: FeedGridModule): FeedGridComponent
     operator fun plus(module: PhotoModule): PhotoComponent
 
     fun inject(baseActivity: BaseActivity)

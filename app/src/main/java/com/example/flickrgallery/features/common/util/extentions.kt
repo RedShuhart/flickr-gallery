@@ -1,4 +1,4 @@
-package com.example.flickrgallery.features.common
+package com.example.flickrgallery.features.common.util
 
 import android.view.View
 

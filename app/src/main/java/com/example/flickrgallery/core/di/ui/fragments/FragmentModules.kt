@@ -6,7 +6,10 @@ import dagger.Module
 class SplashModule
 
 @Module
-class FeedModule
+class FeedCardsModule
+
+@Module
+class FeedGridModule
 
 @Module
 class PhotoModule

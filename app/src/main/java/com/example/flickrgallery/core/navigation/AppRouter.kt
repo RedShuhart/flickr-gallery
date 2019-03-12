@@ -8,8 +8,12 @@ class AppRouter: Router() {
         newRootScreen(AppScreens.SplashScreen())
     }
 
-    fun openFeedScreen() {
-        newRootScreen(AppScreens.FeedScreen())
+    fun openFeedCardsScreen() {
+        newRootScreen(AppScreens.FeedCardsScreen())
+    }
+
+    fun openFeedGridScreen() {
+        newRootScreen(AppScreens.FeedGridScreen())
     }
 
     fun openPhotoScreen(flickrImage: FlickrImage) {

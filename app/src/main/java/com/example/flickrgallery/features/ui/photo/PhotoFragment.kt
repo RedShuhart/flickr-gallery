@@ -12,6 +12,7 @@ import com.example.flickrgallery.R
 import com.example.flickrgallery.core.api.models.FlickrImage
 import com.example.flickrgallery.core.di.ui.fragments.PhotoModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
+import com.example.flickrgallery.features.common.util.loadImage
 import javax.inject.Inject
 
 class PhotoFragment : BaseMvpFragment(), PhotoView {
@@ -43,9 +44,7 @@ class PhotoFragment : BaseMvpFragment(), PhotoView {
     }
 
     override fun showPhoto() {
-        Glide.with(requireContext())
-            .load(flickrImage.media.m.replace("_m", "_z"))
-            .into(imageView)
+        loadImage(requireContext(), flickrImage, imageView)
     }
 
     override fun onBackPressed(): Boolean {

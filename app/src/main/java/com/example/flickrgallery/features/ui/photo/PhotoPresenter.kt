@@ -16,6 +16,6 @@ class PhotoPresenter @Inject internal constructor(
     }
 
     fun goBack() {
-        router.openFeedScreen()
+        router.openFeedCardsScreen()
     }
 }

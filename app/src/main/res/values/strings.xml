@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">flickrgallery</string>
+    <string name="app_name">Flickr Gallery</string>
+    <string name="as_grid">As grid</string>
+    <string name="as_cards">As cards</string>
 </resources>

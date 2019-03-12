@@ -18,7 +18,7 @@ class SplashPresenter @Inject internal constructor(
         Single.just("")
             .delay(500, TimeUnit.MILLISECONDS)
             .compose(rxSchedulers.computationToMainSingle())
-            .subscribe{ _ -> router.openFeedScreen() }
+            .subscribe{ _ -> router.openFeedCardsScreen() }
             .unsubscribeOnDestroy()
     }
 }
