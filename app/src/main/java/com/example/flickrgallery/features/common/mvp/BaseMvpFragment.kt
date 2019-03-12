@@ -5,8 +5,8 @@ import com.example.flickrgallery.features.common.BaseActivity
 
 open class BaseMvpFragment: MvpAppCompatFragment(), BaseMvpView {
 
-    fun getActivityComponent() = getBaseActivity().getActivityComponent()
+    protected fun getActivityComponent() = getBaseActivity().getActivityComponent()
 
-    fun getBaseActivity() = requireActivity() as BaseActivity
+    protected fun getBaseActivity() = requireActivity() as BaseActivity
 
 }

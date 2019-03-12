@@ -18,10 +18,11 @@ class MainActivity: BaseActivity() {
         getActivityComponent().inject(this)
         setContentView(R.layout.base_activity)
         if (savedInstanceState == null) {
-            // TODO: NAVIGATE TO SPLASH SCREEN
+            router.openSplashScreen()
         }
     }
 
-    private fun getCurrenFragment() =
+    private fun getCurrentFragment() =
         supportFragmentManager.findFragmentById(R.id.fragmentContainer) as BaseMvpFragment
+
 }

@@ -6,13 +6,12 @@ import com.example.flickrgallery.core.schedulers.RxSchedulers
 import javax.inject.Inject
 
 class SplashPresenter @Inject internal constructor(
-    private val schedulers: RxSchedulers,
     private val router: AppRouter
 ): BaseMvpPresenter<SplashView>() {
 
+    // TODO: Maybe we can preload feed here
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        // TODO: Navigate to feed fragment
-        //router.navigateTo()
+        router.openFeedScreen()
     }
 }
