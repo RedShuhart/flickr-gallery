@@ -22,6 +22,15 @@ class MainActivity: BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        val currentMvpFragment = getCurrentFragment()
+        if (currentMvpFragment.onBackPressed()) {
+            return
+        }
+
+        super.onBackPressed()
+    }
+
     private fun getCurrentFragment() =
         supportFragmentManager.findFragmentById(R.id.fragmentContainer) as BaseMvpFragment
 

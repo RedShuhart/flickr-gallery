@@ -9,4 +9,8 @@ open class BaseMvpFragment: MvpAppCompatFragment(), BaseMvpView {
 
     protected fun getBaseActivity() = requireActivity() as BaseActivity
 
+    open fun onBackPressed(): Boolean {
+        return false
+    }
+
 }

@@ -48,6 +48,11 @@ class PhotoFragment : BaseMvpFragment(), PhotoView {
             .into(imageView)
     }
 
+    override fun onBackPressed(): Boolean {
+        presenter.goBack()
+        return true
+    }
+
     companion object {
 
         private const val FLICKR_IMAGE = "FLICKR_IMAGE"
