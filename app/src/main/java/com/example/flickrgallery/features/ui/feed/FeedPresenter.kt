@@ -16,7 +16,7 @@ class FeedPresenter @Inject internal constructor(
     private val router: AppRouter
 ) : BaseMvpPresenter<FeedView>() {
 
-    private val feed = ArrayList<FlickrImage>()
+    private val feed = mutableListOf<FlickrImage>()
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -30,11 +30,11 @@ class FeedPresenter @Inject internal constructor(
             .subscribe { result ->
                 feed.clear()
                 feed.addAll(result.items)
+                viewState.showFeed(feed)
             }.unsubscribeOnDestroy()
     }
 
     fun onFeedItemClick(item: FlickrImage) {
-        // TODO: Add when detail view implemented
-        // router.openImageScreen(item)
+        router.openPhotoScreen(item)
     }
 }

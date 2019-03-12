@@ -1,5 +1,7 @@
 package com.example.flickrgallery.core.api.models
 
+import java.io.Serializable
+
 data class FlickrImage (
     val title: String,
     val link: String,
@@ -10,4 +12,4 @@ data class FlickrImage (
     val author: String,
     val author_id: String,
     val tags: String
-)
+): Serializable
