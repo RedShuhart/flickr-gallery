@@ -6,9 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface FlickrApi {
-    @GET("https://api.flickr.com/services/feeds/photos_public.gne")
+    @GET("services/feeds/photos_public.gne")
     fun getFeed(
         @Query("format")  format: String = "json",
-        @Query("tags")  tags: String = "sunset"
+        @Query("tags")  tags: String = "sunset",
+        @Query("nojsoncallback")  nojsoncallback: String = "true"
     ): Observable<FlickrFeed>
 }
+
+const val FLICKR_URL = "https://api.flickr.com/"

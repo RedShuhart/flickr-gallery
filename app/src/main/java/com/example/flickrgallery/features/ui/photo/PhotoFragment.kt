@@ -10,7 +10,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bumptech.glide.Glide
 import com.example.flickrgallery.R
 import com.example.flickrgallery.core.api.models.FlickrImage
-import com.example.flickrgallery.core.di.ui.fragments.FragmentModule
+import com.example.flickrgallery.core.di.ui.fragments.PhotoModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import javax.inject.Inject
 
@@ -29,7 +29,7 @@ class PhotoFragment : BaseMvpFragment(), PhotoView {
     override fun onCreate(savedInstanceState: Bundle?) {
         flickrImage = arguments!!.getSerializable(FLICKR_IMAGE) as FlickrImage
 
-        getActivityComponent().plus(FragmentModule()).inject(this)
+        getActivityComponent().plus(PhotoModule()).inject(this)
         super.onCreate(savedInstanceState)
     }
 

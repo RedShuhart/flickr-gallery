@@ -12,7 +12,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.flickrgallery.R
 import com.example.flickrgallery.core.api.models.FlickrImage
-import com.example.flickrgallery.core.di.ui.fragments.FragmentModule
+import com.example.flickrgallery.core.di.ui.fragments.FeedModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import javax.inject.Inject
 
@@ -31,7 +31,7 @@ class FeedFragment : BaseMvpFragment(), FeedView {
     private var feedAdapter: FeedAdapter = FeedAdapter(onClickListener = this::onImageClick)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        getActivityComponent().plus(FragmentModule()).inject(this)
+        getActivityComponent().plus(FeedModule()).inject(this)
         super.onCreate(savedInstanceState)
     }
 
@@ -43,6 +43,7 @@ class FeedFragment : BaseMvpFragment(), FeedView {
         super.onViewCreated(view, savedInstanceState)
         progressBar = view.findViewById(R.id.progressBar)
         feedView = view.findViewById(R.id.feed)
+        feedView.adapter = feedAdapter
         feedView.layoutManager = LinearLayoutManager(requireContext())
     }
 

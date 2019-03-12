@@ -13,4 +13,7 @@ class AppRxSchedulers: RxSchedulers() {
         return Schedulers.io()
     }
 
+    override fun computation(): Scheduler {
+        return Schedulers.computation()
+    }
 }

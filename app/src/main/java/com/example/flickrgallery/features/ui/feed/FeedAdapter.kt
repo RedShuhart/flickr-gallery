@@ -11,8 +11,10 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.flickrgallery.R
 import com.example.flickrgallery.core.api.models.FlickrImage
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeFormatter.ISO_INSTANT
 
 class FeedAdapter(val data: MutableList<FlickrImage> = mutableListOf(), val onClickListener: (item: FlickrImage) -> Unit = {}):
     RecyclerView.Adapter<FeedAdapter.Companion.ViewHolder>(), MutableList<FlickrImage> by data {
@@ -21,7 +23,6 @@ class FeedAdapter(val data: MutableList<FlickrImage> = mutableListOf(), val onCl
         class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             val image = itemView.findViewById<AppCompatImageView>(R.id.flickr_image)
             val title = itemView.findViewById<AppCompatTextView>(R.id.title)
-            val author = itemView.findViewById<AppCompatTextView>(R.id.author)
             val published = itemView.findViewById<AppCompatTextView>(R.id.published)
         }
     }
@@ -30,17 +31,16 @@ class FeedAdapter(val data: MutableList<FlickrImage> = mutableListOf(), val onCl
         val currentImage = data[position]
 
         val circularProgressDrawable = CircularProgressDrawable(holder.itemView.context).apply {
-            strokeWidth = 5f
-            centerRadius = 30f
+            strokeWidth = 8f
+            centerRadius = 50f
             start()
         }
 
         holder.title.text = currentImage.title
-        holder.author.text = currentImage.author
-        holder.published.text = LocalDateTime.parse(currentImage.published, DateTimeFormatter.ISO_LOCAL_DATE_TIME).toString()
+        holder.published.text = LocalDateTime.parse(currentImage.published, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")).toString()
 
         Glide.with(holder.itemView.context)
-            .load(currentImage.media.m)
+            .load(currentImage.media.m.replace("_m", "_z"))
             .placeholder(circularProgressDrawable)
             .into(holder.image)
 

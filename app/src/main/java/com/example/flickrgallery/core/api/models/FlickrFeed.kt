@@ -1,5 +1,7 @@
 package com.example.flickrgallery.core.api.models
 
+import java.io.Serializable
+
 data class FlickrFeed (
     val title: String,
     val link: String,
@@ -7,4 +9,4 @@ data class FlickrFeed (
     val modified: String,
     val generator: String,
     val items: List<FlickrImage>
-)
+): Serializable

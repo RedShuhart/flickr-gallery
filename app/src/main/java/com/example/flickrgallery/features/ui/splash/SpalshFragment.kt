@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.flickrgallery.R
-import com.example.flickrgallery.core.di.ui.fragments.FragmentModule
+import com.example.flickrgallery.core.di.ui.fragments.SplashModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import javax.inject.Inject
 
@@ -23,7 +23,7 @@ class SplashFragment : BaseMvpFragment(), SplashView {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        getActivityComponent().plus(FragmentModule()).inject(this)
+        getActivityComponent().plus(SplashModule()).inject(this)
         super.onCreate(savedInstanceState)
     }
 
