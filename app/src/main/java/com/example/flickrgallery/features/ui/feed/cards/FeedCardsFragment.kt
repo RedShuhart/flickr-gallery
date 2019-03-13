@@ -44,15 +44,16 @@ class FeedCardsFragment : BaseMvpFragment(), FeedView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         progressBar = view.findViewById(R.id.progressBar)
         feedView = view.findViewById(R.id.feed)
+
+        initFeedView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.feed_cards_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
-        feedView.adapter = feedCardAdapter
-        feedView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -77,14 +78,19 @@ class FeedCardsFragment : BaseMvpFragment(), FeedView {
         progressBar.hide()
     }
 
-    private fun onImageClick(image: FlickrImage) {
-        presenter.onFeedItemClick(image)
+    private fun onImageClick(position: Int) {
+        presenter.onFeedItemClick(position)
     }
 
     private fun reloadCards(data: List<FlickrImage>) {
         feedCardAdapter.clear()
         feedCardAdapter.addAll(data)
         feedCardAdapter.notifyDataSetChanged()
+    }
+
+    private fun initFeedView() {
+        feedView.adapter = feedCardAdapter
+        feedView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     companion object {

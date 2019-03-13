@@ -12,8 +12,10 @@ import com.example.flickrgallery.features.common.util.loadImage
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class FeedCardAdapter(val data: MutableList<FlickrImage> = mutableListOf(), val onClickListener: (item: FlickrImage) -> Unit = {}):
-    RecyclerView.Adapter<FeedCardAdapter.Companion.ViewHolder>(), MutableList<FlickrImage> by data {
+class FeedCardAdapter(
+    private val data: MutableList<FlickrImage> = mutableListOf(),
+    val onClickListener: (position: Int) -> Unit = {}
+): RecyclerView.Adapter<FeedCardAdapter.Companion.ViewHolder>(), MutableList<FlickrImage> by data {
 
     companion object {
 
@@ -35,9 +37,9 @@ class FeedCardAdapter(val data: MutableList<FlickrImage> = mutableListOf(), val 
             dateFormat
         ).toString()
 
-        loadImage(holder.itemView.context, currentImage, holder.image)
+        loadImage(holder.itemView.context, currentImage, holder.image, true)
 
-        holder.image.setOnClickListener{ onClickListener(currentImage) }
+        holder.image.setOnClickListener{ onClickListener(position) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -4,6 +4,7 @@ import com.example.flickrgallery.features.common.mvp.BaseMvpPresenter
 import com.example.flickrgallery.core.navigation.AppRouter
 import com.example.flickrgallery.core.schedulers.RxSchedulers
 import io.reactivex.Single
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -18,7 +19,9 @@ class SplashPresenter @Inject internal constructor(
         Single.just("")
             .delay(500, TimeUnit.MILLISECONDS)
             .compose(rxSchedulers.computationToMainSingle())
-            .subscribe{ _ -> router.openFeedCardsScreen() }
-            .unsubscribeOnDestroy()
+            .subscribe(
+                { result -> router.openFeedCardsScreen() },
+                { throwable -> Timber.e(throwable) }
+            ).unsubscribeOnDestroy()
     }
 }

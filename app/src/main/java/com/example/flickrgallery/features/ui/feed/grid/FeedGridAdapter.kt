@@ -12,8 +12,9 @@ import com.example.flickrgallery.features.common.util.loadImage
 
 class FeedGridAdapter(
     val context: Context,
-    val data: MutableList<FlickrImage> = mutableListOf(),
-    val onClickListener: (item: FlickrImage) -> Unit = {}) : BaseAdapter(), MutableList<FlickrImage> by data {
+    private val data: MutableList<FlickrImage> = mutableListOf(),
+    val onClickListener: (position: Int) -> Unit = {}
+) : BaseAdapter(), MutableList<FlickrImage> by data {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view: View
@@ -32,7 +33,7 @@ class FeedGridAdapter(
 
         loadImage(context, currentImage, viewHolder.imageView)
 
-        viewHolder.imageView.setOnClickListener{onClickListener(currentImage)}
+        viewHolder.imageView.setOnClickListener{onClickListener(position)}
 
         return view
     }

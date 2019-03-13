@@ -12,6 +12,7 @@ import com.example.flickrgallery.core.di.ui.fragments.FeedGridModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import com.example.flickrgallery.features.ui.feed.FeedPresenter
 import com.example.flickrgallery.features.ui.feed.FeedView
+import java.text.FieldPosition
 import javax.inject.Inject
 
 
@@ -77,8 +78,8 @@ class FeedGridFragment : BaseMvpFragment(), FeedView {
         progressBar.hide()
     }
 
-    private fun onImageClick(image: FlickrImage) {
-        presenter.onFeedItemClick(image)
+    private fun onImageClick(position: Int) {
+        presenter.onFeedItemClick(position)
     }
 
 

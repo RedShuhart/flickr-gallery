@@ -1,36 +1,23 @@
-package com.example.flickrgallery.features.ui.photo
+package com.example.flickrgallery.features.ui.detailedphotos.photoview
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatImageView
-import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.bumptech.glide.Glide
+import androidx.fragment.app.Fragment
 import com.example.flickrgallery.R
 import com.example.flickrgallery.core.api.models.FlickrImage
-import com.example.flickrgallery.core.di.ui.fragments.PhotoModule
-import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import com.example.flickrgallery.features.common.util.loadImage
-import javax.inject.Inject
+import com.github.chrisbanes.photoview.PhotoView
 
-class PhotoFragment : BaseMvpFragment(), PhotoView {
-
-    @Inject
-    @InjectPresenter
-    lateinit var presenter: PhotoPresenter
-
-    @ProvidePresenter
-    fun providePresenter(): PhotoPresenter = presenter
+class DetailedPhotoFragment : Fragment() {
 
     lateinit var flickrImage: FlickrImage
-    lateinit var imageView: AppCompatImageView
+    lateinit var imageView: PhotoView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         flickrImage = arguments!!.getSerializable(FLICKR_IMAGE) as FlickrImage
 
-        getActivityComponent().plus(PhotoModule()).inject(this)
         super.onCreate(savedInstanceState)
     }
 
@@ -41,27 +28,19 @@ class PhotoFragment : BaseMvpFragment(), PhotoView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageView = view.findViewById(R.id.full_size_photo)
-    }
-
-    override fun showPhoto() {
-        loadImage(requireContext(), flickrImage, imageView)
-    }
-
-    override fun onBackPressed(): Boolean {
-        presenter.goBack()
-        return true
+        loadImage(requireContext(), flickrImage, imageView, true)
     }
 
     companion object {
 
         private const val FLICKR_IMAGE = "FLICKR_IMAGE"
 
-        fun newInstance(flickrImage: FlickrImage): PhotoFragment {
+        fun newInstance(flickrImage: FlickrImage): DetailedPhotoFragment {
 
             val args = Bundle()
             args.putSerializable(FLICKR_IMAGE, flickrImage)
 
-            val fragment = PhotoFragment()
+            val fragment = DetailedPhotoFragment()
             fragment.arguments = args
             return fragment
         }
