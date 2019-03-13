@@ -13,7 +13,9 @@ import com.example.flickrgallery.core.di.ui.fragments.FeedCardsModule
 import com.example.flickrgallery.features.common.mvp.BaseMvpFragment
 import javax.inject.Inject
 import android.view.MenuInflater
+import androidx.appcompat.widget.SearchView
 import com.example.flickrgallery.features.ui.feed.FeedPresenter
+import com.example.flickrgallery.features.ui.feed.FeedTagsTextListener
 import com.example.flickrgallery.features.ui.feed.FeedView
 
 
@@ -54,6 +56,23 @@ class FeedCardsFragment : BaseMvpFragment(), FeedView {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.feed_cards_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+
+        val searchView = SearchView(getBaseActivity().supportActionBar?.themedContext ?: context)
+        menu.findItem(R.id.search).apply {
+            setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW or MenuItem.SHOW_AS_ACTION_IF_ROOM)
+            actionView = searchView
+        }
+
+        searchView.setOnQueryTextListener(object :  SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                presenter.loadFeed(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

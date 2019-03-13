@@ -3,6 +3,7 @@ package com.example.flickrgallery.features.ui.feed.grid
 import android.os.Bundle
 import android.view.*
 import android.widget.GridView
+import androidx.appcompat.widget.SearchView
 import androidx.core.widget.ContentLoadingProgressBar
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -52,6 +53,23 @@ class FeedGridFragment : BaseMvpFragment(), FeedView {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.feed_grid_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+
+        val searchView = SearchView(getBaseActivity().supportActionBar?.themedContext ?: context)
+        menu.findItem(R.id.search).apply {
+            setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW or MenuItem.SHOW_AS_ACTION_IF_ROOM)
+            actionView = searchView
+        }
+
+        searchView.setOnQueryTextListener(object :  SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                presenter.loadFeed(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

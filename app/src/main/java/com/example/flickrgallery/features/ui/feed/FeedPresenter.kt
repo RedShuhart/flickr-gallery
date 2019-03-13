@@ -24,8 +24,8 @@ class FeedPresenter @Inject internal constructor(
         loadFeed()
     }
 
-    private fun loadFeed(layout: String = "CARD") {
-        flickrApi.getFeed()
+    fun loadFeed(tags: String = "") {
+        flickrApi.getFeed(tags = tags)
             .compose(rxSchedulers.ioToMain())
             .progress()
             .subscribe(
