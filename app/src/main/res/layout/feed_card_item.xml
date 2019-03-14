@@ -27,12 +27,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/flickr_image"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="8dp"
-                android:layout_width="71dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/title"
                 tools:text="Image Title"
                 android:layout_marginTop="8dp"
-        />
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="0dp"

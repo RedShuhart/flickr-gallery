@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.flickrgallery"
+        applicationId "com.iyushchuk.flickrgallery"
         minSdkVersion 28
         targetSdkVersion 28
         versionCode 1
