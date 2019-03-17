@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iyushchuk.flickrgallery.R
 import com.iyushchuk.flickrgallery.core.api.models.FlickrImage
+import com.iyushchuk.flickrgallery.features.common.util.ImageSize
 import com.iyushchuk.flickrgallery.features.common.util.loadImage
 import com.iyushchuk.flickrgallery.features.common.util.printImageDate
 
@@ -32,7 +33,7 @@ class FeedCardAdapter(
 
         holder.published.text = printImageDate(currentImage)
 
-        loadImage(holder.itemView.context, currentImage, holder.image, true)
+        loadImage(holder.itemView.context, currentImage, holder.image, ImageSize.LARGER)
 
         holder.image.setOnClickListener{ onClickListener(position) }
     }

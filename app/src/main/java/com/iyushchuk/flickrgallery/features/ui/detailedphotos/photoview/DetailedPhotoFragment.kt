@@ -9,6 +9,7 @@ import com.iyushchuk.flickrgallery.R
 import com.iyushchuk.flickrgallery.core.api.models.FlickrImage
 import com.iyushchuk.flickrgallery.features.common.util.loadImage
 import com.github.chrisbanes.photoview.PhotoView
+import com.iyushchuk.flickrgallery.features.common.util.ImageSize
 
 class DetailedPhotoFragment : Fragment() {
 
@@ -28,7 +29,7 @@ class DetailedPhotoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageView = view.findViewById(R.id.full_size_photo)
-        loadImage(requireContext(), flickrImage, imageView, true)
+        loadImage(requireContext(), flickrImage, imageView, ImageSize.BIG)
     }
 
     companion object {
